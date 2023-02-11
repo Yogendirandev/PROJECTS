@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>sign up</title>
+
+<style>
+body
+{
+  background-image:url(proj.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#signup-form 
+{
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f2f2f2;
+}
+
+.form-group
+{
+  margin-bottom: 20px;
+}
+
+label 
+{
+  font-weight: bold;
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] 
+{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+<form id="signup-form">
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" name="confirm-password" required>
+  </div>
+  <button type="submit">Sign Up</button>
+</form>
+<script>
+  window.onload = function() {
+    document.getElementById("username").focus();
+  };
+</script>
+</body>
+</html>

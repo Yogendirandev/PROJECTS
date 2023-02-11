@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>chat</title>
+
+	<style>body {
+  background-image: url(bg-image.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+nav {
+  background-color: rgba(51, 51, 51, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+nav ul li {
+  background-color: rgba(51, 51, 51, 0.8);
+  width: 100%;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.chatbot-header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.chatbot-header h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.chatbot-header .close-btn {
+  color: #fff;
+  cursor: pointer;
+}
+
+.chatbot-body {
+  padding: 20px;
+  overflow-y: scroll;
+  height: calc(100% - 70px);
+}
+
+.chatbot-footer {
+  background-color: #f2f2f2;
+  display: flex;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.chatbot-footer input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chatbot-footer button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  nav a {
+    font-size: 18px;
+  }
+  
+  .chatbot {
+    width: 250px;
+    height: 400px;
+  }
+}</style>
+</head>
+<body>
+<div id="chatbot-container">
+  <div id="chatbot-header">
+    <h3>Chatbot</h3>
+    <button id="close-btn">Close</button>
+  </div>
+  <div id="chatbot-messages">
+    <!-- messages will be displayed here -->
+  </div>
+  <div id="chatbot-input">
+    <input type="text" id="user-message" placeholder="Type your message here...">
+    <button id="send-btn">Send</button>
+  </div>
+</div>
+<button id="open-btn">Open Chatbot</button>
+
+<script>
+	const openBtn = document.getElementById("open-btn");
+const closeBtn = document.getElementById("close-btn");
+const chatbotContainer = document.getElementById("chatbot-container");
+const messagesContainer = document.getElementById("chatbot-messages");
+const userMessage = document.getElementById("user-message");
+const sendBtn = document.getElementById("send-btn");
+
+openBtn.addEventListener("click", function() {
+  chatbotContainer.style.display = "block";
+});
+
+closeBtn.addEventListener("click", function() {
+  chatbotContainer.style.display = "none";
+});
+
+sendBtn.addEventListener("click", function() {
+  const message = userMessage.value;
+  if (!message) {
+    return;
+  }
+
+  messagesContainer.innerHTML += `<div class="chatbot-message">You: ${message}</div>`;
+
+  // Replace this with a call to your chatbot API to get a response
+  const chatbotResponse = "This is a response from the chatbot.";
+
+  messagesContainer.innerHTML += `<div class="chatbot-message">Chatbot: ${chatbotResponse}</div>`;
+});</script>
+</body>
+</html>
